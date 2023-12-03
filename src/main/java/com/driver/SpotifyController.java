@@ -14,7 +14,7 @@ public class SpotifyController {
     @PostMapping("/add-user")
     public String createUser(@RequestParam(name = "name") String name, String mobile){
         //create the user with given name and number
-        User user= spotifyService.createUser(name, mobile);
+        User user= spotifyService.createUser(name,mobile);
         return "Success";
     }
 
@@ -29,7 +29,7 @@ public class SpotifyController {
     public String createAlbum(@RequestParam(name = "title") String title, String artistName){
         //If the artist does not exist, first create an artist with given name
         //Create an album with given title and artist
-        Album album=spotifyService.createAlbum(title, artistName);
+        Album album=spotifyService.createAlbum(title,artistName);
         return "Success";
     }
 
@@ -66,7 +66,7 @@ public class SpotifyController {
         //If the user does not exist, throw "User does not exist" exception
         //If the playlist does not exists, throw "Playlist does not exist" exception
         // Return the playlist after updating
-        Playlist playlist=spotifyService.findPlaylist(mobile,playlistTitle);
+        Playlist playlist=spotifyService.findPlaylist(mobile, playlistTitle);
         return "Success";
     }
 
@@ -86,6 +86,7 @@ public class SpotifyController {
     public String mostPopularArtist(){
         //Return the artist name with maximum likes
         return spotifyService.mostPopularArtist();
+
     }
 
     @GetMapping("/popular-song")
